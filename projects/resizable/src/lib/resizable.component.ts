@@ -1,20 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ng-resizable',
-  template: `
+    selector: 'ng-resizable',
+    template: `
     <p>
       resizable works!
     </p>
   `,
-  styles: [
-  ]
+    styles: [
+    ],
 })
-export class ResizableComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ResizableComponent {
 }

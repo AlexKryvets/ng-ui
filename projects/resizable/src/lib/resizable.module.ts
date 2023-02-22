@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { ResizableComponent } from './resizable.component';
+import {NgModule} from '@angular/core';
+import {ResizableComponent} from './resizable.component';
 
 
 
 @NgModule({
-  declarations: [
-    ResizableComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    ResizableComponent
-  ]
+    declarations: [
+        ResizableComponent,
+    ],
+    imports: [
+    ],
+    exports: [
+        ResizableComponent,
+    ],
 })
 export class ResizableModule { }
