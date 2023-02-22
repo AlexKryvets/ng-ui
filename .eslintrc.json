@@ -16,9 +16,27 @@
       },
       "extends": [
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/recommended",
+        "airbnb-typescript/base"
       ],
       "rules": {
+        "no-var": ["error"],
+        "no-console": [
+          "error",
+          {
+            "allow": ["warn", "error"]
+          }
+        ],
+        "@typescript-eslint/indent": [
+          "error",
+          4,
+          {
+            "ignoredNodes": ["ClassBody.body > PropertyDefinition[decorators.length > 0] > .key"],
+            "SwitchCase": 1
+          }
+        ],
+        "@typescript-eslint/object-curly-spacing": ["error", "never"],
         "@angular-eslint/directive-selector": [
           "error",
           {
