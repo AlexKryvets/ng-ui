@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-resizable-app": {
+    "ui-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-resizable-app",
+            "outputPath": "dist/ui-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-resizable-app:build:production"
+              "browserTarget": "ui-app:build:production"
             },
             "development": {
-              "browserTarget": "ng-resizable-app:build:development"
+              "browserTarget": "ui-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-resizable-app:build"
+            "browserTarget": "ui-app:build"
           }
         },
         "test": {
@@ -112,23 +112,23 @@
         }
       }
     },
-    "resizable": {
+    "ui": {
       "projectType": "library",
-      "root": "projects/resizable",
-      "sourceRoot": "projects/resizable/src",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui/src",
       "prefix": "ng",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/resizable/ng-package.json"
+            "project": "projects/ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/resizable/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/resizable/tsconfig.lib.json"
+              "tsConfig": "projects/ui/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -136,17 +136,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/resizable/src/test.ts",
-            "tsConfig": "projects/resizable/tsconfig.spec.json",
-            "karmaConfig": "projects/resizable/karma.conf.js"
+            "main": "projects/ui/src/test.ts",
+            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ui/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/resizable/**/*.ts",
-              "projects/resizable/**/*.html"
+              "projects/ui/**/*.ts",
+              "projects/ui/**/*.html"
             ]
           }
         }

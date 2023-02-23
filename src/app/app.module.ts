@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {ResizableModule} from '@teamsoft/resizable';
+import {SplitPanelModule} from '@teamsoft/ui';
 
 @NgModule({
     declarations: [
@@ -10,7 +10,7 @@ import {ResizableModule} from '@teamsoft/resizable';
     ],
     imports: [
         BrowserModule,
-        ResizableModule,
+        SplitPanelModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

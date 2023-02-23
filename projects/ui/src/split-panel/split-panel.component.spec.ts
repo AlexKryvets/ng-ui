@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ResizableComponent} from './resizable.component';
+import {SplitPanelComponent} from './split-panel.component';
 
-describe('ResizableComponent', () => {
-    let component: ResizableComponent;
-    let fixture: ComponentFixture<ResizableComponent>;
+describe('UiComponent', () => {
+    let component: SplitPanelComponent;
+    let fixture: ComponentFixture<SplitPanelComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ ResizableComponent ],
+            declarations: [ SplitPanelComponent ],
         })
             .compileComponents();
 
-        fixture = TestBed.createComponent(ResizableComponent);
+        fixture = TestBed.createComponent(SplitPanelComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

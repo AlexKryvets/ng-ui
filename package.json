@@ -1,16 +1,16 @@
 {
-  "name": "ng-resizable-app",
+  "name": "ui-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:resizable": "ng build resizable",
+    "build:ui": "ng build ui",
     "watch": "ng build --watch --configuration development",
-    "watch:resizable": "ng build resizable --watch --configuration development",
+    "watch:ui": "ng build ui --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "lint:resizable": "ng lint resizable",
+    "lint:ui": "ng lint ui",
     "prepare": "husky install"
   },
   "private": true,

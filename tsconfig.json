@@ -17,8 +17,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "@teamsoft/resizable": [
-        "dist/resizable"
+      "@teamsoft/ui": [
+        "dist/ui"
       ]
     },
     "target": "es2020",
