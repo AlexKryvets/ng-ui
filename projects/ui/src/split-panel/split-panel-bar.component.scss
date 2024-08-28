@@ -1,0 +1,173 @@
+$bar-color: #f5f5f5;
+$splitter-color: $bar-color;
+$handle-color: #b5bdc4;
+$expander-color: $handle-color;
+$focus-color: #795548;
+$border-radius: 1px;
+$size: 4px;
+$ease-out-quad: cubic-bezier(.25, .46, .45, .94);
+$hitbox-size: 4px;
+
+%handle-area {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: $hitbox-size;
+    background: transparent;
+}
+
+%handle-area--vertical {
+    width: $hitbox-size;
+    height: 100%;
+}
+
+.ts-ui-split-panel-bar {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background: $splitter-color;
+    border: 1px solid $splitter-color;
+    opacity: 1;
+    transition: opacity .15s $ease-out-quad !important;
+
+    &::before {
+        @extend %handle-area;
+        top: 100%;
+    }
+
+    &::after {
+        @extend %handle-area;
+        bottom: 100%;
+    }
+
+    &:hover {
+        transition: all .25s ease-out;
+    }
+
+    &.ts-ui-split-panel-bar--vertical {
+        min-width: $size*1.5;
+    }
+
+    &:not(.ts-ui-split-panel-bar--vertical) {
+        min-height: $size*1.5;
+    }
+}
+
+.ts-ui-split-panel-bar-host {
+    &:focus {
+        outline: transparent solid 1px;
+        .ts-ui-split-panel-bar__handle {
+            background: $focus-color;
+        }
+    }
+}
+
+.ts-ui-split-panel-bar--vertical {
+    flex-direction: column;
+    height: 100%;
+
+    &::before {
+        @extend %handle-area--vertical;
+        top: 0;
+        right: 100%;
+    }
+
+    &::after {
+        @extend %handle-area--vertical;
+        top: 0;
+        left: 100%;
+    }
+}
+
+.ts-ui-split-panel-bar__handle, .ts-ui-split-panel-bar--vertical .ts-ui-split-panel-bar__handle {
+    background: $handle-color;
+    border-radius: $border-radius;
+}
+
+.ts-ui-split-panel-bar__handle {
+    width: 25%;
+    height: calc($size/2);
+    margin: 0 3rem;
+}
+
+.ts-ui-split-panel-bar--vertical .ts-ui-split-panel-bar__handle {
+    width: calc($size/2);
+    height: 25%;
+    margin: 3rem 0;
+}
+
+%panel-hitbox {
+    position: absolute;
+    content: '';
+    background: transparent;
+}
+
+.ts-ui-split-panel-bar__expander--start,
+.ts-ui-split-panel-bar__expander--end,
+.ts-ui-split-panel-bar--vertical .ts-ui-split-panel-bar__expander--start,
+.ts-ui-split-panel-bar--vertical .ts-ui-split-panel-bar__expander--end {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-inline-end: $size solid transparent;
+    border-inline-start: $size solid transparent;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.ts-ui-split-panel-bar__expander--start {
+    border-bottom: $size solid $expander-color;
+
+    &::before {
+        @extend %panel-hitbox;
+        top: calc(100% - $size);
+        left: calc(100% - ($size * 2));
+        width: calc($size * 4);
+        height: calc($size * 3);
+    }
+}
+
+.ts-ui-split-panel-bar__expander--end {
+    border-bottom: unset;
+    border-top: $size solid $expander-color;
+
+    &::before {
+        @extend %panel-hitbox;
+        top: calc(100% - ($size * 2));
+        left: calc(100% - ($size * 2));
+        width: calc($size * 4);
+        height: calc($size * 3);
+    }
+}
+
+.ts-ui-split-panel-bar--vertical .ts-ui-split-panel-bar__expander--start {
+    border-top: $size solid transparent;
+    border-inline-end: $size solid $expander-color;
+    border-bottom: $size solid transparent;
+    border-inline-start: unset;
+
+    &::before {
+        @extend %panel-hitbox;
+        top: calc(100% - ($size * 2));
+        left: calc(100% - ($size * 2));
+        width: calc($size * 3);
+        height: calc($size * 4);
+    }
+}
+
+.ts-ui-split-panel-bar--vertical .ts-ui-split-panel-bar__expander--end {
+    border-top: $size solid transparent;
+    border-inline-end: unset;
+    border-bottom: $size solid transparent;
+    border-inline-start: $size solid $expander-color;
+
+    &::before {
+        @extend %panel-hitbox;
+        left: calc(100% - ($size * 2));
+        top: calc(100% - ($size * 2));
+        height: calc($size * 4);
+        width: calc($size * 3);
+    }
+}

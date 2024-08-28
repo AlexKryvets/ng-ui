@@ -1,0 +1,12 @@
+<ng-content select="ts-ui-split-panel-section"></ng-content>
+<ng-container *ngFor="let panelSection of panelSections; let last = last; let index= index;">
+    <ts-ui-split-panel-bar *ngIf="!last" [order]='panelSection.order + 1' role='separator'
+                           [type]="type"
+                           [collapsible]="collapsible"
+                           [panelSection]="panelSection"
+                           [siblings]='getPanelSectionSiblingsByOrder(panelSection.order + 1, index)'
+                           (moveStart)="onMoveStart($event)"
+                           (moving)="onMoving($event)"
+                           (movingEnd)='onMoveEnd($event)'>
+    </ts-ui-split-panel-bar>
+</ng-container>

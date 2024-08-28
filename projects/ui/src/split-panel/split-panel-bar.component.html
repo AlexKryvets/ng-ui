@@ -1,0 +1,22 @@
+<div class="ts-ui-split-panel-bar"
+     [class.ts-ui-split-panel-bar--vertical]='type === 0'
+     [style.cursor]='cursor'
+     tsUiDrag
+     [ghost]="false"
+     [dragDirection]='dragDir'
+     (dragStart)='onDragStart($event)'
+     (dragMove)="onDragMove($event)"
+     (dragEnd)="onDragEnd($event)"
+>
+    <div class="ts-ui-split-panel-bar__expander--start"
+         tsUiDragIgnore
+         *ngIf="collapsible"
+         (click)='onCollapsing(false)'
+         [hidden]='prevButtonHidden'></div>
+    <div class="ts-ui-split-panel-bar__handle" ></div>
+    <div class="ts-ui-split-panel-bar__expander--end"
+         tsUiDragIgnore
+         *ngIf="collapsible"
+         (click)='onCollapsing(true)'
+         [hidden]='nextButtonHidden'></div>
+</div>

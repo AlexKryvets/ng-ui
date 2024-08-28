@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'igniteui-angular/lib/core/styles/themes/index' as *;
+@include core();
+@include theme(
+    $palette: $light-bootstrap-palette,
+    $schema: $light-bootstrap-schema,
+);
